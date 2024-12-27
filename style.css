@@ -4,13 +4,12 @@
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    transition: background-color 0.3s, color 0.3s;
- 
-}
 
+body {
+  font-family: 'Roboto', sans-serif; /* Example of a Google Font */
+  color: #333; /* Darker text for readability */
+  line-height: 1.6;
+}
 .navbar {
     background: #333;
     color: #fff;
@@ -101,28 +100,35 @@ body {
    
   .about-container {
     display: flex;
-    align-items: center; /* Centers items vertically */
-    gap: 20px; /* Adds space between the image and text */
+    flex-direction: column; /* For smaller screens */
+    align-items: center;
+    text-align: center;
+    gap: 20px; /* Space between elements */
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
 }
 
-.profile-photo {
-    width: 500px; /* Adjust size as needed */
-    height: 500px; /* Keep it square */
-    object-fit: cover; /* Ensures the image fills the circle without distortion */
-    margin: 30px;
+@media (min-width: 768px) {
+    .about-container {
+        flex-direction: row; /* For larger screens */
+        text-align: left;
+    }
 }
 
-.about-text {
-    max-width: 600px; /* Adjust width as needed */
-}
 
 .about h2, .about h3, .about p {
     margin: 0 0 10px;
 }
 
-
-  
-  
+.about-text {
+  max-width: 600px;
+  padding: 10px 20px;
+}
+.about-text h1 {
+  font-size: 2.5rem;
+  color: #4CAF50; /* Example: a nice green color */
+}
 .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -300,4 +306,22 @@ section {
   .menu-toggle {
       display: block; /* Show hamburger icon on small screens */
   }
+}
+@media (hover: none) {
+  .profile-photo:hover {
+      transform: none;
+  }
+}
+@keyframes hoverEffect {
+  from {
+      transform: scale(1);
+      filter: brightness(100%);
+  }
+  to {
+      transform: scale(1.1);
+      filter: brightness(110%);
+  }
+}
+.profile-photo:hover {
+  animation: hoverEffect 0.3s ease-in-out;
 }
